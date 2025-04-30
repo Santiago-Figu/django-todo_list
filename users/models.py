@@ -38,6 +38,21 @@ class User(models.Model):
     def get_email(self):
         """Descifra el email almacenado."""
         return cipher.decrypt(self.email)
+    
+    # Propiedades para compatibilidad con DRF (sin necesidad de migración)
+    @property
+    def is_authenticated(self):
+        """Siempre devuelve True para usuarios existentes"""
+        return True
+        
+    @property
+    def is_anonymous(self):
+        """Siempre devuelve False para usuarios reales"""
+        return False
+    
+    @property
+    def is_active(self):
+        return True  # O implementa lógica según tu campo 'team' u otro
 
     def __str__(self):
         return f"({self.username}) {self.name} {self.lastname}"

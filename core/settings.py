@@ -118,19 +118,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',  # Por defecto requiere autenticación
-#     ],
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.SessionAuthentication',
-#         # Opcional: Añadir JWT u otros métodos después
-#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [],
 # }
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'users.auth.JWTAuthentication',  # Crearemos esta clase
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

@@ -62,6 +62,20 @@ class AESCipher:
         correo_descifrado = cipher.decrypt(correo_cifrado)
         print("Correo descifrado:", correo_descifrado)
 
+    @staticmethod
+    def cifrar_datos(dato:str = "juan@example.com"):
+        
+        load_dotenv()
+        cipher = AESCipher(os.getenv("FERNET_KEY"))
+
+        dato_cifrado = cipher.encrypt(dato)
+        print("dato cifrado:", dato_cifrado)
+
+        dato_descifrado = cipher.decrypt(dato_cifrado)
+        print("dato descifrado:", dato_descifrado)
+        
+        return dato_cifrado
+
 
 def limpiar_caracteres_input(cadena):
     """Elimina caracteres que no sean alfanumericos"""

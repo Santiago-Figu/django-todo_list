@@ -3,3 +3,7 @@ django-rest-framework
 python-dotenv 
 psycopg2-binary
 pycryptodome
+pyjwt
+cryptography
+python-jose[cryptography]
+colorlog
