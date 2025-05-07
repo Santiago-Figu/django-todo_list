@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'tasks',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # }
 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # Este es el que genera la interfaz HTML
+    ],
+    
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'users.auth.JWTAuthentication',  # Crearemos esta clase
+        'utils.auth.JWTAuthentication', #agregar JWT por defecto
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',

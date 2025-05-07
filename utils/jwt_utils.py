@@ -16,7 +16,7 @@ class TokenJwt:
         if not self.SECRET_KEY:
             raise ValueError("SECRET_KEY no está configurada.")
         self.ALGORITHM = "HS256"
-        self.ACCESS_TOKEN_EXPIRE_MINUTES = 5  # Token expira en 5 minutos
+        self.ACCESS_TOKEN_EXPIRE_MINUTES = 15  # Token expira en 5 minutos
         
         self.FERNET_KEY = os.getenv("FERNET_KEY")
         if not self.FERNET_KEY:

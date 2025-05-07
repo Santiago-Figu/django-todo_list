@@ -26,3 +26,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver 0.0.0.0:8000
+
+# Admin
+jose_admin | jose@algo.com | meoi1234
+admin_test | admin_test@outlook.com | meoi1234

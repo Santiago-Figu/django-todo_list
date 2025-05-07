@@ -2,7 +2,8 @@ import os
 from django.db import models
 from django.core.validators import RegexValidator
 from dotenv import load_dotenv
-from users.utils import AESCipher
+from utils.aes_cipher import AESCipher
+
 
 load_dotenv()
 cipher = AESCipher(os.getenv('FERNET_KEY'))

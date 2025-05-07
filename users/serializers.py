@@ -2,22 +2,6 @@ from rest_framework import serializers
 from django.contrib.auth.password_validation import validate_password
 from .models import User
 
-
-class LoginSerializer(serializers.Serializer):
-    """Clase para crear un formulario sencillo de login aprocechando lo serializadores de Django sin utilizar un archivo html"""
-    username = serializers.CharField(label="Usuario o Email")
-    password = serializers.CharField(
-        style={'input_type': 'password'},  # Para que se muestre como campo de contraseña
-        write_only=True
-    )
-
-    def add_error(self, field, error):
-        if field is None:
-            field = 'non_field_errors'
-        if field not in self._errors:
-            self._errors[field] = []
-        self._errors[field].append(error)
-
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True,
@@ -35,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
             'name': {'required': True},
             'lastname': {'required': True},
         }
-        read_only_fields = ['id','team']  # Previene que usuarios normales se auto-asignen a "admin"
+        read_only_fields = ['id']  # Previene que usuarios normales se auto-asignen a "admin"
 
     def validate_email(self, value):
         """
@@ -89,3 +73,18 @@ class UserSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
+    
+
+
+class PasswordChangeSerializer(serializers.Serializer):
+    old_password = serializers.CharField(
+        required=True,
+        write_only=True,
+        style={'input_type': 'password'}
+    )
+    new_password = serializers.CharField(
+        required=True,
+        write_only=True,
+        validators=[validate_password],
+        style={'input_type': 'password'}
+    )

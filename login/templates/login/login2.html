@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container" style="max-width: 500px; margin-top: 50px;">
-    <h2>Iniciar Sesión</h2>
+    <h2 style="text-align: center;">Ingresa tus datos</h2>
     
     {% if serializer.errors %}
         <div class="alert alert-danger">
@@ -41,7 +41,7 @@
     </div>
     {% endif %}
     
-    <form method="post" class="form-horizontal">
+    <form style="padding-top: 1em;" method="post" class="form-horizontal">
         {% csrf_token %}
         
         <div class="form-group">
@@ -63,7 +63,7 @@
         
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Generar Token</button>
             </div>
         </div>
         
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tokenText = document.querySelector('.token-value').textContent;
             navigator.clipboard.writeText(tokenText).then(function() {
                 const originalText = copyButton.textContent;
-                copyButton.textContent = '¡Copiado!';
+                copyButton.textContent = '¡Token copiado al portapapeles!';
                 setTimeout(function() {
                     copyButton.textContent = originalText;
                 }, 4000);
