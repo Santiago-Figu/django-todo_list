@@ -19,7 +19,7 @@ Para levantar este proyecto necesitas agregar las siguientes variables a tu **.e
 `SCHEMA=tu_schema`
 
 #### Django - Configuración
-`DJANGO_SECRET_KEY = django-insecure-ied=9!iq1!*pv2%+x$tr)b+#ktzr7ii+jimd_(m_gw5o$s_w#9`
+`DJANGO_SECRET_KEY = django-insecure-ied=tu_secret_key`
 
 `ADMIN_PASSWORD=tu_password_admin`
 
@@ -30,7 +30,7 @@ Para levantar este proyecto necesitas agregar las siguientes variables a tu **.e
 
 `SECRET_KEY=tu_secret_key`
 
-`FERNET_KEY=CZnGcdN2AXxJiXtO2oifCVtbgnO9nUJQpP7yKiaV5t0=`
+`FERNET_KEY=tu_secret_key`
 ## Run Locally
 
 Descarga el proyecto
@@ -99,8 +99,8 @@ Ejecuta las migraciones iniciales de Django
 > Es importante crear un usuario en base de datos con las siguientes caracteristicas establecidas en el modelo **User** de la app **users**: 'name', 'lastname', 'username', 'password', 'email', 'cellphone', 'team'
 
 ```bash
-    jose_admin | jose@algo.com | meoi1234
-    admin_test | admin_test@outlook.com | meoi1234
+    jose_admin | jose@algo.com | tu_password
+    admin_test | admin_test@outlook.com | tu_password
 ```
 
 Ejecuta el servidor
